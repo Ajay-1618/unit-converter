@@ -80,7 +80,7 @@ float fromKelvin(float kelvin, int outputUnit) {
 }
 
 // Function to perform the temperature conversion
-void performConversion() {
+void performConversionT() {
     Temperature input, output;
     float kelvin;
     int unit;
@@ -119,7 +119,7 @@ void performConversion() {
     }
     printf("\n");
 }
-    performConversion();
+    performConversionT();
 }
 
 // Function for currency conversion
@@ -162,7 +162,7 @@ float fromUsd(float usd, int outputUnit) {
 }
 
 // Function to perform the currency conversion
-void performConversion() {
+void performConversionC() {
     Currency input, output;
     float usd;
     int unit;
@@ -203,7 +203,7 @@ void performConversion() {
     }
     printf("\n");
 }
-    performConversion();
+    performConversionC();
 }
 
 // Function for mass conversion
@@ -325,7 +325,7 @@ float fromMinutes(float minutes, int outputUnit) {
 }
 
 // Function to perform the time conversion
-void performConversion() {
+void performConversiontime() {
     Time input, output;
     float minutes;
     int unit;
@@ -366,7 +366,7 @@ void performConversion() {
     }
     printf("\n");
 }
-    performConversion();
+    performConversiontime();
 }
 
 // Function for length conversion
@@ -402,7 +402,7 @@ void lengthConversion() {
     }
 
     // Function to perform the length conversion
-    void performConversion() {
+    void performConversionlen() {
         Length input, output;
         float meters;
         int unit;
@@ -443,5 +443,5 @@ void lengthConversion() {
         }
         printf("\n");
     } 
-    performConversion();
+    performConversionlen();
 }
