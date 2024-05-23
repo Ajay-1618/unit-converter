@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
 #include <math.h>
 
 // Function prototypes
@@ -10,8 +9,9 @@ void massConversion();
 void lengthConversion();
 void timeConversion();
 
+int category;//global variable
+
 int main() {
-     int category;
 
     printf("****Welcome to Unit Converter!**** \n");
     printf("Here is a list of conversions to choose from: \n");
@@ -47,7 +47,6 @@ int main() {
         }
         }
     }
-    getch();
     return 0;
 }
 
