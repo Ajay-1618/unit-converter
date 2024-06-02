@@ -1,4 +1,4 @@
-// Online C compiler to run C program online
+// Unit converter project
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
