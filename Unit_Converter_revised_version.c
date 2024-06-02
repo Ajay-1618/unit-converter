@@ -1,3 +1,4 @@
+// Online C compiler to run C program online
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -124,166 +125,161 @@ void performConversionT() {
 
 // Function for currency conversion
 void currencyConversion() {
-    // Implementation for currency conversion
     // Structure to hold a currency value and its unit
-typedef struct {
-    float value;
-    int unit;
-} Currency;
+    typedef struct {
+        float value;
+        int unit;
+    } Currency;
 
-// Conversion rates to USD (for example purposes, use the current rates for accurate conversion)
-const float yenToUsd = 0.0074;
-const float euroToUsd = 1.12;
-const float rupeeToUsd = 0.012;
-const float poundToUsd = 1.31;
+    // Conversion rates to USD 
+    const float yenToUsd = 157.3;
+    const float euroToUsd = 0.92;
+    const float rupeeToUsd = 83.45;
+    const float poundToUsd = 0.78;
 
-// Function to convert any unit to USD
-float toUsd(float value, int inputUnit) {
-    switch (inputUnit) {
-        case 1: return value; // USD
-        case 2: return value * yenToUsd; // Yen to USD
-        case 3: return value * euroToUsd; // Euro to USD
-        case 4: return value * rupeeToUsd; // Rupee to USD
-        case 5: return value * poundToUsd; // Pound to USD
-        default: return -1;
-    }
-}
-
-// Function to convert USD to any unit
-float fromUsd(float usd, int outputUnit) {
-    switch (outputUnit) {
-        case 1: return usd; // USD
-        case 2: return usd / yenToUsd; // USD to Yen
-        case 3: return usd / euroToUsd; // USD to Euro
-        case 4: return usd / rupeeToUsd; // USD to Rupee
-        case 5: return usd / poundToUsd; // USD to Pound
-        default: return -1;
-    }
-}
-
-// Function to perform the currency conversion
-void performConversionC() {
-    Currency input, output;
-    float usd;
-    int unit;
-
-    printf("Options:\n1. US Dollar\n2. Yen\n3. Euro\n4. Rupee\n5. Pound\n");
-
-    printf("\nSelect the unit to convert from (1-5): ");
-    scanf("%d", &unit);
-    input.unit = unit;
-
-    printf("\nSelect the unit to convert to: ");
-    scanf("%d", &unit);
-    output.unit = unit;
-
-    printf("\nEnter the currency value: ");
-    scanf("%f", &input.value);
-
-    usd = toUsd(input.value, input.unit);
-    if (usd == -1) {
-        printf("Invalid input unit\n");
-        return;
+    // Function to convert any unit to USD
+    float toUsd(float value, int inputUnit) {
+        switch (inputUnit) {
+            case 1: return value; // USD
+            case 2: return value / yenToUsd; // Yen to USD
+            case 3: return value / euroToUsd; // Euro to USD
+            case 4: return value / rupeeToUsd; // Rupee to USD
+            case 5: return value / poundToUsd; // Pound to USD
+            default: return -1;
+        }
     }
 
-    output.value = fromUsd(usd, output.unit);
-    if (output.value == -1) {
-        printf("Invalid output unit\n");
-        return;
+    // Function to convert USD to any unit
+    float fromUsd(float usd, int outputUnit) {
+        switch (outputUnit) {
+            case 1: return usd; // USD
+            case 2: return usd * yenToUsd; // USD to Yen
+            case 3: return usd * euroToUsd; // USD to Euro
+            case 4: return usd * rupeeToUsd; // USD to Rupee
+            case 5: return usd * poundToUsd; // USD to Pound
+            default: return -1;
+        }
     }
 
-    printf("\nConverted value: %.2f ", output.value);
-    switch (output.unit) {
-        case 1: printf("US Dollar"); break;
-        case 2: printf("Yen"); break;
-        case 3: printf("Euro"); break;
-        case 4: printf("Rupee"); break;
-        case 5: printf("Pound"); break;
-        default: printf("invalid unit"); break;
+    // Function to perform the currency conversion
+    void performConversionC() {
+        Currency input, output;
+        float usd;
+        int unit;
+
+        printf("Options:\n1. US Dollar\n2. Yen\n3. Euro\n4. Rupee\n5. Pound\n");
+
+        printf("\nSelect the unit to convert from (1-5): ");
+        scanf("%d", &unit);
+        input.unit = unit;
+
+        printf("\nSelect the unit to convert to: ");
+        scanf("%d", &unit);
+        output.unit = unit;
+
+        printf("\nEnter the currency value: ");
+        scanf("%f", &input.value);
+
+        usd = toUsd(input.value, input.unit);
+        if (usd == -1) {
+            printf("Invalid input unit\n");
+            return;
+        }
+
+        output.value = fromUsd(usd, output.unit);
+        if (output.value == -1) {
+            printf("Invalid output unit\n");
+            return;
+        }
+
+        printf("\nConverted value: %.2f ", output.value);
+        switch (output.unit) {
+            case 1: printf("US Dollar"); break;
+            case 2: printf("Yen"); break;
+            case 3: printf("Euro"); break;
+            case 4: printf("Rupee"); break;
+            case 5: printf("Pound"); break;
+            default: printf("invalid unit"); break;
+        }
+        printf("\n");
     }
-    printf("\n");
-}
+
     performConversionC();
 }
 
 // Function for mass conversion
+// Function for mass conversion
 void massConversion() {
-    // Implementation for mass conversion
-// Structure to hold a mass value and its unit
-typedef struct {
-    float value;
-    int unit;
-} Mass;
+    typedef struct {
+        float value;
+        int unit;
+    } Mass;
 
-// Function to convert any unit to kilograms
-float toKilograms(float value, int inputUnit) {
-    switch (inputUnit) {
-        case 1: return value;                // Kilograms
-        case 2: return value * 1000;         // Grams
-        case 3: return value * 0.453592;     // Pounds
-        case 4: return value * 0.000453592;  // Milligrams
-        case 5: return value * 1000;         // Tons
-        default: return -1;
-    }
-}
-
-// Function to convert kilograms to any unit
-float fromKilograms(float kilograms, int outputUnit) {
-    switch (outputUnit) {
-        case 1: return kilograms;                 // Kilograms
-        case 2: return kilograms / 1000;          // Grams
-        case 3: return kilograms / 0.453592;      // Pounds
-        case 4: return kilograms / 0.000453592;   // Milligrams
-        case 5: return kilograms / 1000;          // Tons
-        default: return -1;
-    }
-}
-
-// Function to perform mass conversion
-void performMassConversion() {
-    Mass input, output;
-    float kilograms;
-    int unit;
-
-    printf("Options:\n1. Kilograms \n2. Grams \n3. Pounds \n4. Milligrams \n5. Tons\n");
-
-    printf("\nSelect the unit to convert from (1-5): ");
-    scanf("%d", &unit);
-    input.unit = unit;
-
-    printf("\nSelect the unit to convert to: ");
-    scanf("%d", &unit);
-    output.unit = unit;
-
-    printf("\nEnter the mass value: ");
-    scanf("%f", &input.value);
-
-    kilograms = toKilograms(input.value, input.unit);
-    if (kilograms == -1) {
-        printf("Invalid input unit\n");
-        return;
+    float toKilograms(float value, int inputUnit) {
+        switch (inputUnit) {
+            case 1: return value; // Kilograms
+            case 2: return value / 1000; // Grams to Kilograms
+            case 3: return value * 0.453592; // Pounds to Kilograms
+            case 4: return value / 1000000; // Milligrams to Kilograms
+            case 5: return value * 1000; // Tons to Kilograms
+            default: return -1;
+        }
     }
 
-    output.value = fromKilograms(kilograms, output.unit);
-    if (output.value == -1) {
-        printf("Invalid output unit\n");
-        return;
+    float fromKilograms(float kilograms, int outputUnit) {
+        switch (outputUnit) {
+            case 1: return kilograms; // Kilograms
+            case 2: return kilograms * 1000; // Kilograms to Grams
+            case 3: return kilograms / 0.453592; // Kilograms to Pounds
+            case 4: return kilograms * 1000000; // Kilograms to Milligrams
+            case 5: return kilograms / 1000; // Kilograms to Tons
+            default: return -1;
+        }
     }
 
-    printf("\nConverted value: %.2f ", output.value);
-    switch (output.unit) {
-        case 1: printf("kilograms"); break;
-        case 2: printf("grams"); break;
-        case 3: printf("pounds"); break;
-        case 4: printf("milligrams"); break;
-        case 5: printf("tons"); break;
-        default: printf("invalid unit"); break;
+    void performMassConversion() {
+        Mass input, output;
+        float kilograms;
+        int unit;
+
+        printf("Options:\n1. Kilograms \n2. Grams \n3. Pounds \n4. Milligrams \n5. Tons\n");
+
+        printf("\nSelect the unit to convert from (1-5): ");
+        scanf("%d", &unit);
+        input.unit = unit;
+
+        printf("\nSelect the unit to convert to: ");
+        scanf("%d", &unit);
+        output.unit = unit;
+
+        printf("\nEnter the mass value: ");
+        scanf("%f", &input.value);
+
+        kilograms = toKilograms(input.value, input.unit);
+        if (kilograms == -1) {
+            printf("Invalid input unit\n");
+            return;
+        }
+
+        output.value = fromKilograms(kilograms, output.unit);
+        if (output.value == -1) {
+            printf("Invalid output unit\n");
+            return;
+        }
+
+        printf("\nConverted value: %.2f ", output.value);
+        switch (output.unit) {
+            case 1: printf("kilograms"); break;
+            case 2: printf("grams"); break;
+            case 3: printf("pounds"); break;
+            case 4: printf("milligrams"); break;
+            case 5: printf("tons"); break;
+            default: printf("invalid unit"); break;
+        }
+        printf("\n");
     }
-    printf("\n");
-}
     performMassConversion();
 }
-
 
 // Function for time conversion
 void timeConversion() {
@@ -383,8 +379,8 @@ void lengthConversion() {
             case 1: return value;
             case 2: return value * 1000;
             case 3: return value / 100;
-            case 4: return value * 0.0254;
-            case 5: return value * 0.3048;
+            case 4: return value / 39.3700787;
+            case 5: return value / 3.2808399;
             default: return -1;
         }
     }
@@ -395,8 +391,8 @@ void lengthConversion() {
             case 1: return meters;
             case 2: return meters / 1000;
             case 3: return meters * 100;
-            case 4: return meters / 0.0254;
-            case 5: return meters / 0.3048;
+            case 4: return meters *39.3700787;
+            case 5: return meters *3.2808399;
             default: return -1;
         }
     }
